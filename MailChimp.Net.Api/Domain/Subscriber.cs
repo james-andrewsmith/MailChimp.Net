@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace MailChimp.Net.Api.Domain
 {
-    class Subscriber : MailChimpItem
+    public sealed class Subscriber
     {
         [JsonProperty("email")]
         public Email Email { get; set; }

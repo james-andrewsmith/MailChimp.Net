@@ -10,7 +10,7 @@ namespace MailChimp.Net.Api.Domain
     /// <summary>
     /// "email":{"email": "example email", "euid": "example euid", "leid": "example leid"}
     /// </summary>
-    public class Email
+    public sealed class Email
     {
         [JsonProperty("email")]
         public string EmailValue { get; set; }

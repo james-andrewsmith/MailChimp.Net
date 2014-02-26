@@ -29,35 +29,11 @@ namespace MailChimp.Net.Settings
             set { this["apiKey"] = value; }
         }
 
-        [ConfigurationProperty("subscriberListId", DefaultValue = "testkey")]
-        public string SubscriberListId
+        [ConfigurationProperty("dataCenter", DefaultValue = "testkey")]
+        public string DataCenter
         {
-            get { return (string)this["subscriberListId"]; }
-            set { this["subscriberListId"] = value; }
-        }
-
-        //https://us2.api.mailchimp.com/2.0
-        [ConfigurationProperty("serviceUrl", DefaultValue = "https://us2.api.mailchimp.com/2.0")]
-        public string ServiceUrl
-        {
-            get { return (string)this["serviceUrl"]; }
-            set { this["serviceUrl"] = value; }
-        }
-
-        //lists
-        [ConfigurationProperty("listsRelatedSection", DefaultValue = "/lists")]
-        public string ListsRelatedSection
-        {
-            get { return (string)this["listsRelatedSection"]; }
-            set { this["listsRelatedSection"] = value; }
-        }
-
-        //lists
-        [ConfigurationProperty("helperRelatedSection", DefaultValue = "/helper")]
-        public string HelperRelatedSection
-        {
-            get { return (string)this["helperRelatedSection"]; }
-            set { this["helperRelatedSection"] = value; }
-        }
+            get { return (string)this["dataCenter"]; }
+            set { this["dataCenter"] = value; }
+        }             
     }
 }

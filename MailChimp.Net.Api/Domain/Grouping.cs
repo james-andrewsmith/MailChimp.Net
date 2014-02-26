@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace MailChimp.Net.Api.Domain
 {
-    public class Grouping
+    public sealed class Grouping
     {
         public Grouping()
         {
