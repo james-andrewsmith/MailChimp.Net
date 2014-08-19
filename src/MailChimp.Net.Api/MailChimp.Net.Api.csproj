@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42F8CCCF-E737-4D72-ACE2-081A37E58B14}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MailChimp.Net.Api</RootNamespace>
+    <AssemblyName>MailChimp.Net.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'teamcity|AnyCPU'">
+    <OutputPath>bin\teamcity\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\AccountDetails.cs" />
+    <Compile Include="Domain\AccountDetailsContact.cs" />
+    <Compile Include="Domain\Activity.cs" />
+    <Compile Include="Domain\CampaignFilter.cs" />
+    <Compile Include="Domain\CampaignSegmentOptions.cs" />
+    <Compile Include="Domain\CampaignTracking.cs" />
+    <Compile Include="Domain\CampaignType.cs" />
+    <Compile Include="Domain\CampaignTypeOptions.cs" />
+    <Compile Include="Domain\Condition.cs" />
+    <Compile Include="Domain\ContentOption.cs" />
+    <Compile Include="Domain\Campaign.cs" />
+    <Compile Include="Domain\AccountDetailsOrder.cs" />
+    <Compile Include="Domain\AccountDetailsReward.cs" />
+    <Compile Include="Domain\AccountDetailsModule.cs" />
+    <Compile Include="Domain\AccountDetailsIntegration.cs" />
+    <Compile Include="Domain\EmailType.cs" />
+    <Compile Include="Domain\Folder.cs" />
+    <Compile Include="Domain\FolderType.cs" />
+    <Compile Include="Domain\GalleryFile.cs" />
+    <Compile Include="Domain\Geo.cs" />
+    <Compile Include="Domain\Invite.cs" />
+    <Compile Include="Domain\MailChimpError.cs" />
+    <Compile Include="Domain\MergeVariables.cs" />
+    <Compile Include="Domain\OrderItem.cs" />
+    <Compile Include="Domain\Order.cs" />
+    <Compile Include="Domain\Email.cs" />
+    <Compile Include="Domain\Grouping.cs" />
+    <Compile Include="Domain\Role.cs" />
+    <Compile Include="Helpers\MailChimpServiceResponse.cs" />
+    <Compile Include="Domain\Subscriber.cs" />
+    <Compile Include="Domain\Template.cs" />
+    <Compile Include="Domain\User.cs" />
+    <Compile Include="Domain\Vip.cs" />
+    <Compile Include="Helpers\MergeVariableConverter.cs" />
+    <Compile Include="Helpers\Urls.cs" />
+    <Compile Include="MailChimpException.cs" />
+    <Compile Include="Services\MailChimpService.cs" />
+    <Compile Include="Services\MailChimpVipService.cs" />
+    <Compile Include="Services\MailChimpUserService.cs" />
+    <Compile Include="Services\MailChimpTemplateService.cs" />
+    <Compile Include="Services\MailChimpReportService.cs" />
+    <Compile Include="Services\MailChimpGalleryService.cs" />
+    <Compile Include="Services\MailChimpFolderService.cs" />
+    <Compile Include="Services\MailChimpCampaignService.cs" />
+    <Compile Include="Services\MailChimpECommerceService.cs" />
+    <Compile Include="Services\MailChimpHelperService.cs" />
+    <Compile Include="Services\MailChimpListService.cs" />
+    <Compile Include="Helpers\Mapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebHooks\WebhookController.cs" />
+    <Compile Include="WebHooks\WebhookHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MailChimp.Net.Settings\MailChimp.Net.Settings.csproj">
+      <Project>{23a81b3c-0f2a-4023-8acd-b4a63c839caf}</Project>
+      <Name>MailChimp.Net.Settings</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

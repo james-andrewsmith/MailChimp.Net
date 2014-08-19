@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+		<id>mailchimp-net</id>
+		<version>1.0.0</version>
+		<authors>James Andrew-Smith</authors>
+		<owners>James Andrew-Smith</owners>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<projectUrl>https://github.com/james-andrewsmith/mailchimp-net</projectUrl>
+		<licenseUrl>https://raw.github.com/james-andrewsmith/stripe.net/master/LICENSE</licenseUrl>
+		<title>MailChimp.Net</title>
+		<description>Stripe.net is a full service .net api for http://stripe.com. For documentation, visit https://github.com/jaymedavis/stripe.net.</description>
+		<tags>mailchimp, email, marketing, newsletter</tags>
+		<dependencies>
+			<dependency id="Newtonsoft.Json" version="4.5.9" />
+			<dependency id="RestSharp" version="4.5.9" />
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="working\MailChimp.net.dll" target="lib\net40" />
+	</files>
+</package>
