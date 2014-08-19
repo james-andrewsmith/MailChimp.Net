@@ -1,8 +1,8 @@
 ===============================
- MailChimp.NET | Congo Edition
+ MailChimp.NET 
 ===============================
 
-This project is a complete wrapper for the MailChimp API V2 (link), it was orignally forked from Blah Blah's library, and was refactored to include many concepts and snippets from the Blah Blah's amazing Stripe.Net library. A big shout out to MailChimp for documenting their API so well, I was able to write 95% off this code without running a single request.
+This project is a complete wrapper for the MailChimp API V2 (link), it was orignally forked from Spyros' (https://github.com/sdesyllas) library, and was refactored to include many concepts and snippets from the Jayme Davis' amazing Stripe.Net library. A big shout out to MailChimp for documenting their API so well, I was able to write 95% off this code without running a single request.
 
 It includes:
 

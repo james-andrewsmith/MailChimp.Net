@@ -213,3 +213,5 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+
+*.mine
