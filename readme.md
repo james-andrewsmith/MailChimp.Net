@@ -20,21 +20,26 @@ You can instanciate a class using your APIKey and/or Datacentre, if these are om
 
 - Dynamic Runtime DataCentre & APIKey
 
-
-&lt;configuration&gt;
-  &lt;configSections&gt;
-    &lt;section name="MailChimpServiceSettings" type="MailChimp.Net.Settings.MailChimpServiceConfiguration, MailChimp.Net.Settings" />
-  &lt;/configSections&gt;
-  &lt;MailChimpServiceSettings
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="MailChimpServiceSettings" type="MailChimp.Net.Settings.MailChimpServiceConfiguration, MailChimp.Net.Settings" />
+  </configSections>
+  <MailChimpServiceSettings
     apiKey="testapikey-us7"
-    dataCenter="us7" /&gt;
-&lt;/configuration&gt;<pre>
+    subscriberListId="testlistid"
+    serviceUrl="https://us7.api.mailchimp.com/2.0/"
+    listsRelatedSection="lists"
+    helperRelatedSection="helper"/>
+</configuration>
+```
 
-===== Sample Services =====
+###### Sample Services
 
 Ping, Subscribe, ECommerce Tranaction
 
-===== Webhooks =====
+###### Webhooks
 
 WebHooks are implemented for ASP.NET MVC projects via an abstact "WebhookController", this will natively call the virtual functions for each type of event with the parameters already mapped to input variables. 
 
@@ -44,33 +49,31 @@ You're expected to catch any exceptions in your webhook overrides, otherwise the
 
 Whenever possible the API will return a native object mapped with the values of the response, however a number of API calls in MailChimp result in specific structures to each account. To handle these cases the response always contains the raw JSON and a JSON.net JToken to allow for easy traversal of any response. If an error has occured the raw JSON will contain the JSON for the error.
 
-===== Errors =====
+###### Errors
 Whenever possible we will map the error returned from the API to a native MailChimpException. 
 
-===== Licence ===== 
-Apache2.
-
 3. Code example to subscribe a newsletter with the given groupings and merge vars
-                
-                IMailChimpApiService mailChimpApiService = new MailChimpApiService(MailChimpServiceConfiguration.Settings.ApiKey);
-                
-                var subscribeSources = new Grouping {Name = "Subscribe Source"};
-                subscribeSources.Groups.Add("Site");
 
-                var couponsGained = new Grouping {Name = "Coupons Gained"};
-                couponsGained.Groups.Add("Coupon1");
+```csharp
+ IMailChimpApiService mailChimpApiService = new MailChimpApiService(MailChimpServiceConfiguration.Settings.ApiKey);
+ 
+ var subscribeSources = new Grouping {Name = "Subscribe Source"};
+ subscribeSources.Groups.Add("Site");
 
-                var interests = new Grouping {Name = "Interests"};
-                interests.Groups.Add("Extreme Games");
+ var couponsGained = new Grouping {Name = "Coupons Gained"};
+ couponsGained.Groups.Add("Coupon1");
+
+ var interests = new Grouping {Name = "Interests"};
+ interests.Groups.Add("Extreme Games");
 
 
-                var fields = new Dictionary<string, string>
-                    {
-                        {"GENDER", "Male"},
-                        {"DATEBORN", DateTime.Now.ToString(CultureInfo.InvariantCulture)},
-                        {"CITY", "Athens"},
-                        {"COUNTRY", "Greece"}
-                    };
+ var fields = new Dictionary<string, string>
+ {
+     {"GENDER", "Male"},
+     {"DATEBORN", DateTime.Now.ToString(CultureInfo.InvariantCulture)},
+     {"CITY", "Athens"},
+     {"COUNTRY", "Greece"}
+ };
 
-                var response = mailChimpApiService.Subscribe("test@domain.com", new List() { subscribeSources, couponsGained, interests }, fields, true);
-
+ var response = mailChimpApiService.Subscribe("test@domain.com", new List() { subscribeSources, couponsGained, interests }, fields, true);
+```
